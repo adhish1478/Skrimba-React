@@ -1,0 +1,109 @@
+body {
+  background-color: #222222;
+  color: white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  background-color: black;
+  width: 50%;
+
+  border-radius: 20px;   /* adjust px for more/less rounding */
+  overflow: hidden;      /* keeps child images/content inside the rounded edges */
+}
+
+.info img {
+  width: 100%;   /* shrink to fit parent’s width */
+  height: auto;      /* keep aspect ratio */
+  display: block;    /* remove inline spacing issues */
+  margin: 0 auto;    /* center the image */
+}
+
+.info h2 {
+  font-size: 2.5rem;
+  margin: 25px 10px 0 0;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: orange;
+  font-style: oblique;
+}
+
+.email {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.info {
+  padding: 0px;   /* add some padding */
+  text-align: center;  /* center text */
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  height: 55px;
+  font-size: 1.15rem;
+}
+
+.mail-button {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  margin-left: 100px;
+}
+
+.linkedin-button {
+  background-color: #0077b5;
+  color: white;
+  margin-right: 100px;
+}
+
+.info-buttons {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.footer {
+  background-color: white;
+  color: black;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around; /* centers items across full container */
+  align-items: center;     /* vertically align if needed */
+  width: 100%;             /* take full width of parent */
+  gap: 20px;               /* space between items */
+  margin-top: 20px;        /* optional spacing from content above */
+  padding: 10px 0;
+  padding-top: 20px;
+}
+
+a img {
+  width: 60px;
+  height: auto;
+}
+
+.footer-text {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.interests {
+  padding: 10px 25px;
+}
+
+.about {
+  padding: 10px 25px;
+}
