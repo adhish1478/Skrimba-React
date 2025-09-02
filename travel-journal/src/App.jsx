@@ -5,12 +5,7 @@ import data from "./data.js"
 const dataMod= data.map((place) => {
     return (
         <Entry key={place.id}
-          img= {place.img}
-          title= {place.title}
-          country= {place.country}
-          googleMapsLink= {place.googleMapsLink}
-          dates= {place.dates}
-          text= {place.text}
+          {...place} // Spread operator to pass all props
         />
     )})
 
