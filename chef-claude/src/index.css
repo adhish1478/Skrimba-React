@@ -5,13 +5,9 @@
 body {
     margin: 0;
     font-family: Inter, sans-serif;
-    background-color: beige;
+    background-color: #FAFAF8;
 }
 
-/**
-header box shadow code:
-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-*/
 
 .header {
   display: inline-flex;
@@ -30,8 +26,43 @@ box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0
   margin-right: 10px;
 }
 
-.header > span {
+.header > h1 {
   font-weight: 400;
   font-size: 1.25rem;
   font-style: italic;
+}
+
+main {
+  padding: 30px 30px 10px;
+}
+
+.main_form {
+  display:flex;
+  gap:12px;
+  justify-content: center;
+  /*align-items: center;*/
+}
+
+.main_form > input {
+  border-radius: 6px;
+  border: 1px solid #D1D5DB;
+  padding: 9px 13px;
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 400px;
+}
+
+.main_form > button {
+  border-radius: 6px;
+  border: none;
+  font-family: Inter, sans-serif;
+  background-color: #141413;
+  color: #FAFAF8;
+  width: 150px;
+  font-size: 0.875rem;
+}
+
+.main_form > button::before {
+  content: "+";
+  margin-right: 5px;
 }
