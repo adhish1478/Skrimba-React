@@ -33,13 +33,13 @@ export default function Main() {
                     {ingredientListElements}
                 </ul>
 
-                <div className="get-recipe-container">
+               { ingredients.length >= 4 && <div className="get-recipe-container">
                     <div>
                         <h3>Ready for recipe?</h3>
                         <p>Generate your recipe from your ingredients!</p>
                     </div>
                     <button>Get a Recipe</button>
-                </div>
+                </div> }
             </section> }
         </main>
     )
