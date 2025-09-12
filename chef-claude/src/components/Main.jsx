@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Recipe from "./Recipe";
 import IngredientsList from "./IngredientsList";
+import { getRecipeLoremIpsum } from "../api/api";
 
 export default function Main() {
 
     const [ingredients, setIngredients] = useState([]);
     const [recipeShown, setRecipeShown] = useState(false);
+    const [recipe, setRecipe] = useState("");
 
     function handleGetRecipe() {
         setRecipeShown(true);
@@ -18,8 +20,13 @@ export default function Main() {
 
         }
 
-    function toggleRecipe() {
+    async function toggleRecipe() {
         setRecipeShown(prevRecipeShown => !prevRecipeShown);
+
+        const result= await getRecipeLoremIpsum(ingredients);
+        setRecipe(result);
+        console.log(result);
+
     }
 
     return (
@@ -39,7 +46,9 @@ export default function Main() {
             toggleRecipe= {toggleRecipe}
             />}
 
-            { recipeShown && <Recipe />}
+            { recipeShown && <Recipe 
+            recipe= {recipe}
+            />}
         </main>
     )
 }
