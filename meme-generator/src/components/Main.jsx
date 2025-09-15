@@ -7,10 +7,12 @@ export default function Main() {
         imageUrl: "http://i.imgflip.com/1bij.jpg"
     })
     
+    const [imageArray, setImageArray] = useState([])
+
     useEffect(() => {
         fetch("https://api.imgflip.com/get_memes")
             .then(res => res.json())
-            .then(data => console.log(data.data.memes))
+            .then(data => setImageArray(data.data.memes))
     }, [])
     
 
@@ -20,6 +22,15 @@ export default function Main() {
         setMeme(prevMeme => ({
             ...prevMeme,
             [name]: value
+        }))
+    }
+
+    const handleGenerate = () => {
+        const randomIndex= Math.floor(Math.random() * imageArray.length)
+
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            imageUrl: imageArray[randomIndex].url
         }))
     }
 
@@ -45,7 +56,7 @@ export default function Main() {
                         value={meme.bottomText}
                     />
                 </label>
-                <button>Get a new meme image 🖼</button>
+                <button onClick={handleGenerate}>Get a new meme image 🖼</button>
             </div>
             <div className="meme">
                 <img src={meme.imageUrl} />
