@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Recipe from "./Recipe";
 import IngredientsList from "./IngredientsList";
 import { getRecipeLoremIpsum } from "../api/api";
@@ -8,6 +8,8 @@ export default function Main() {
     const [ingredients, setIngredients] = useState([]);
     const [recipeShown, setRecipeShown] = useState(false);
     const [recipe, setRecipe] = useState("");
+
+    const recipeSection = useRef(null);
 
     function handleGetRecipe() {
         setRecipeShown(true);
@@ -29,6 +31,12 @@ export default function Main() {
 
     }
 
+    useEffect(() => {
+        if (recipe!== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    })
+
     return (
         <main>
             <form className="main_form" action={addIngredient}>
@@ -47,6 +55,7 @@ export default function Main() {
             />}
 
             { recipeShown && <Recipe 
+            ref = {recipeSection}
             recipe= {recipe}
             />}
         </main>
