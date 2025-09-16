@@ -24,21 +24,18 @@ main {
     background-color: #F5F5F5;
     height: 100%;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 
-.individual-die {
-    width: 50px;
-    height: 40px;
-    background-color: grey;
-    border-radius: 5px;
-    text-align: center;
-}
 
 .die-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
   gap: 20px;
+  place-items: center;
   
 }
 
@@ -51,4 +48,6 @@ main {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   cursor: pointer;
+  font-family: Inter, 'sans-serif';
+  font-weight: bold;
 }
