@@ -1,18 +1,33 @@
 import { useState } from 'react'
 import Dice from "/src/components/Dice"
 
-
-const arrays = [1,1,1,1,1,1,1,1,1,1]
-
-const eightDies= arrays.map(die => (
-    <Dice value= {die}/>
-))
-
-
 export default function App() {
-    return <main>
-        <div className="die-container">
-            {eightDies}
-        </div>
-    </main>
+
+
+      const [dice, setDice] = useState(generateAllNewDice())
+    
+    function generateAllNewDice() {
+        return new Array(10)
+            .fill(0)
+            .map(() => Math.ceil(Math.random() * 6))
+        }
+
+    function rollDice() {
+      const newDice= generateAllNewDice()
+      setDice(newDice)
+    }
+
+    const diceElements = dice.map(num => <Dice value={num} />)
+    
+    return (
+        <main>
+            <div className="dice-container">
+                {diceElements}
+            </div>
+
+            <button className='roll-dice' onClick={rollDice}>Roll Dice</button>
+
+        </main>
+    )
+
 }
