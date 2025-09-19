@@ -19,7 +19,7 @@ export default function App() {
             .fill(0)
             .map(() => ({
                 value: Math.ceil(Math.random() * 6),
-                isHeld: true,
+                isHeld: false,
                 id: nanoid()
             }))
             
@@ -32,7 +32,12 @@ export default function App() {
     }
 
     function holdDice(id) {
-      console.log(id)
+      setDice(prevDice => 
+        prevDice.map(dice => 
+          id === dice.id 
+          ? {...dice, isHeld: !dice.isHeld}
+          : dice
+        ))
     }
 
     const diceElements = dice.map((item) => (
