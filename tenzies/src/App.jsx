@@ -31,8 +31,15 @@ export default function App() {
         setDice(generateAllNewDice())
     }
 
+    function holdDice(id) {
+      console.log(id)
+    }
+
     const diceElements = dice.map((item) => (
-        <Dice key={item.id} value= {item.value} isHeld= {item.isHeld}/>
+        <Dice key={item.id} 
+        value= {item.value} 
+        isHeld= {item.isHeld} 
+        holdDice ={() => holdDice(item.id)}/>
     ))
     
     return (
