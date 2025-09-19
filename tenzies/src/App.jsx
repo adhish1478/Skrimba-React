@@ -28,7 +28,11 @@ export default function App() {
     console.log(dice)
     
     function rollDice() {
-        setDice(generateAllNewDice())
+        setDice(prevDice => prevDice.map(dice =>
+          dice.isHeld
+          ? dice
+          : {...dice, value: Math.ceil(Math.random() * 6)}
+        ))
     }
 
     function holdDice(id) {
@@ -49,6 +53,8 @@ export default function App() {
     
     return (
         <main>
+          <h1 className="title">Tenzies</h1>
+            <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="dice-container">
                 {diceElements}
             </div>
