@@ -13,7 +13,7 @@ export default function App() {
      * Making this change will break parts of our code, so make
      * sure to update things so we're back to a working state
      */
-    const [dice, setDice] = useState(generateAllNewDice())
+    const [dice, setDice] = useState(() => generateAllNewDice())
     
     const gameWon = dice.every(die => die.isHeld) &&
         dice.every(die => die.value === dice[0].value)
